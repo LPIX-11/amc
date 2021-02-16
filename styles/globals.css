@@ -18,6 +18,11 @@
   src: local('Roboto-Regular'), url('../public/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Roboto Thin';
+  src: local('Roboto-Thin'), url('../public/fonts/Roboto/Roboto-Thin.ttf') format('truetype');
+}
+
 html,
 body {
   padding: 0;
@@ -33,4 +38,175 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.border-1 {
+  border-width: 1px !important;
+}
+
+.border-2 {
+  border-width: 2px !important;
+}
+
+.border-3 {
+  border-width: 3px !important;
+}
+
+/* // Width sizing */
+.w-5 {
+  width: 5% !important;
+}
+
+.w-30 {
+  width: 30% !important;
+}
+
+.w-40 {
+  width: 40% !important;
+}
+
+.w-45 {
+  width: 45% !important;
+}
+
+.w-85 {
+  width: 85% !important;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+.w-95 {
+  width: 95% !important;
+}
+
+
+/* // sm */
+@media (min-width: 576px) {
+  .w-sm-25 {
+    width: 25% !important;
+  }
+
+  .w-sm-30 {
+    width: 30% !important;
+  }
+
+  .w-sm-40 {
+    width: 40% !important;
+  }
+
+  .w-sm-45 {
+    width: 45% !important;
+  }
+
+  .w-sm-50 {
+    width: 50% !important;
+  }
+
+  .w-sm-75 {
+    width: 75% !important;
+  }
+
+  .w-sm-85 {
+    width: 85% !important;
+  }
+
+  .w-sm-90 {
+    width: 90% !important;
+  }
+
+  .w-sm-95 {
+    width: 95% !important;
+  }
+
+  .w-sm-100 {
+    width: 100% !important;
+  }
+}
+
+/* // md */
+@media (min-width: 768px) {
+  .w-md-25 {
+    width: 25% !important;
+  }
+
+  .w-md-30 {
+    width: 30% !important;
+  }
+
+  .w-md-40 {
+    width: 40% !important;
+  }
+
+  .w-md-45 {
+    width: 45% !important;
+  }
+
+  .w-md-50 {
+    width: 50% !important;
+  }
+
+  .w-md-75 {
+    width: 75% !important;
+  }
+
+  .w-md-85 {
+    width: 85% !important;
+  }
+
+  .w-md-90 {
+    width: 90% !important;
+  }
+
+  .w-md-95 {
+    width: 95% !important;
+  }
+
+  .w-md-100 {
+    width: 100% !important;
+  }
+}
+
+/* // lg */
+@media (min-width: 992px) {
+  .w-lg-25 {
+    width: 25% !important;
+  }
+
+  .w-lg-30 {
+    width: 30% !important;
+  }
+
+  .w-lg-40 {
+    width: 40% !important;
+  }
+
+  .w-lg-45 {
+    width: 45% !important;
+  }
+
+  .w-lg-50 {
+    width: 50% !important;
+  }
+
+  .w-lg-75 {
+    width: 75% !important;
+  }
+
+  .w-lg-85 {
+    width: 85% !important;
+  }
+
+  .w-lg-90 {
+    width: 90% !important;
+  }
+
+  .w-lg-95 {
+    width: 95% !important;
+  }
+
+  .w-lg-100 {
+    width: 100% !important;
+  }
 }
