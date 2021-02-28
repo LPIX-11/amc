@@ -1,0 +1,1 @@
+export const ToFCFA = amount => new Intl.NumberFormat('USD', { style: 'currency', currency: 'XOF' }).format(amount).replace('CFA', 'FCFA')

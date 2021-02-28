@@ -40,6 +40,10 @@ a {
   box-sizing: border-box;
 }
 
+.shadow-on-hover:hover {
+  box-shadow: 0 .9rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
 .border-1 {
   border-width: 1px !important;
 }

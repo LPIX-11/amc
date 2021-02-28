@@ -1,0 +1,30 @@
+.certificateBadge {
+  width: 89.9px;
+  height: 50.735px;
+  background: blue;
+  position: relative;
+}
+
+.certificateBadge::before {
+  content: "";
+  position: absolute;
+  top: -28.4675px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-bottom: 28.8675px solid blue;
+}
+
+.certificateBadge::after {
+  content: "";
+  position: absolute;
+  bottom: -28.4675px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-top: 28.8675px solid blue;
+}
