@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Layout from '../components/ui/skeleton/Layout'
 import Hero from '../components/common/Hero/Hero';
 import { Col, Container, Row } from 'react-bootstrap';
@@ -7,7 +9,15 @@ import { css } from '@emotion/react';
 import Course from '../components/common/course/Course';
 import { Flex } from '../components/ui/Display/Flex';
 
+import CustomModal from '../components/common/modal/CustomModal';
+
 export default function Home({ courses }) {
+  const [displayModal, setDisplayModal] = useState(false);
+
+  const toggleModal = { onHide: () => setDisplayModal(!displayModal), show: displayModal, toggle: () => setDisplayModal(!displayModal) }
+
+  const [modalInfos, setModalInfos] = useState({});
+
   return (
     <>
       <Layout>
@@ -31,6 +41,8 @@ export default function Home({ courses }) {
                   <Course
                     withDescription
                     hasCertificated
+                    displayInfos={toggleModal}
+                    modalInfos={setModalInfos}
                     image={course.cover}
                     title={course.title}
                     description={course.description}
@@ -41,12 +53,16 @@ export default function Home({ courses }) {
             }
           </Row>
         </Flex>
+
+        <CustomModal borderless size={'lg'} display={toggleModal} title={modalInfos.title ? modalInfos.title : ''}>
+          {modalInfos.children && modalInfos.children}
+        </CustomModal>
       </Layout>
     </>
   )
 }
 
-export const getStaticProps = context => {
+export const getStaticProps = () => {
   return {
     props: {
       courses: [

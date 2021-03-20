@@ -1,7 +1,7 @@
 import SimpleCard from './views/SimpleCard';
 import WithDescription from './views/WithDescription';
 
-export default function Course({ name, title, description, overview, price, image, hasCertificated, withDescription }) {
+export default function Course({ modalInfos, displayInfos, name, title, description, overview, price, image, hasCertificated, withDescription }) {
   const props = {
     image: image,
     name: name,
@@ -9,7 +9,9 @@ export default function Course({ name, title, description, overview, price, imag
     description: description,
     overview: overview,
     price: price,
-    hasCertificated: hasCertificated
+    hasCertificated: hasCertificated,
+    displayInfos: displayInfos,
+    modalInfos: modalInfos,
   }
 
   return withDescription ? <WithDescription {...props} /> : <SimpleCard {...props} />;

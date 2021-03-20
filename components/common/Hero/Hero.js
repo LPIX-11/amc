@@ -1,10 +1,11 @@
 import { css } from '@emotion/react';
 import { Button, Row } from 'react-bootstrap';
-import useWindowSize from '../../../src/hooks/useWindowsSize';
+import useWindowSize from '../../../src/hooks/useWindowSize';
 
 import Banner from '../../ui/Banner/Banner';
 import BlockSeparator from '../../ui/BlockSeparator/BlockSeparator';
 import { Flex } from '../../ui/Display/Flex';
+import { Text } from '../Text/Text';
 
 export default function Hero() {
   const { width } = useWindowSize();
@@ -21,12 +22,19 @@ export default function Hero() {
         <BlockSeparator size={'sm'} color={'#FFF'} />
 
         <Flex column content={'center'}>
-          <span className={'text-white text-center pb-2'} css={css`font-size: 24px`}>
-            Rejoignez les 10,000+ étudians
-          </span>
-          <span className={'text-white'} css={css`font-size: 24px`}>
-            qui sont déjà passé apprendre ici.
-          </span>
+          <Text
+            display={'flex'}
+            size={'24px'}
+            text={'Rejoignez les 10,000+ étudians'}
+            textClass={'text-white text-center pb-2'}
+          />
+
+          <Text
+            display={'flex'}
+            size={'24px'}
+            text={'qui sont déjà passé apprendre ici.'}
+            textClass={'text-white text-center'}
+          />
         </Flex>
 
         <Flex content={'center'} class={'w-100 w-sm-50'}>
