@@ -1,12 +1,12 @@
 export default {
   title: 'Acceuil',
   titleTemplate: '%s | Académie des Métiers & Certifications',
-  description: 'JUDIMAP est la première plateforme digitale dédiée à l’information juridique et administrative au Sénégal.',
-  canonical: 'https://judimap.vercel.app',
+  description: 'Académie des Métiers & Certifications Sénégal',
+  canonical: 'https://amc-five.vercel.app',
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://judimap.vercel.app',
+    url: 'https://amc-five.vercel.app',
     site_name: 'Académie des Métiers & Certifications',
     images: [
       { url: 'public/logo.jpeg' }
