@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className={footerStyles.footer}>
       © Copyright AMC 2021
       <a
-        href="https://linkedin.com/in/mohamed-johnson"
+        href="https://www.linkedin.com/in/mohamed-johnson"
         target="_blank"
         rel="noopener noreferrer"
         className={'pl-2'}

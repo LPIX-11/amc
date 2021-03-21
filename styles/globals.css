@@ -214,3 +214,7 @@ a {
     width: 100% !important;
   }
 }
+
+.modal-lg, .modal-xl {
+  max-width: 1000px;
+}

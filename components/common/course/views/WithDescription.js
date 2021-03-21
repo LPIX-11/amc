@@ -7,16 +7,24 @@ import { Accordion, Button, Card, Col, Row } from 'react-bootstrap';
 import CertificateBadge from '../../certificate/CertificateBadge';
 import { ToFCFA } from '../../../../src/ToCurrency';
 
-import { FaAngleDown } from 'react-icons/fa';
-import { RiComputerFill, RiComputerLine } from 'react-icons/ri';
+import { FaAngleRight } from 'react-icons/fa';
+import { RiComputerLine } from 'react-icons/ri';
+import { GoChecklist, GoTasklist } from 'react-icons/go';
+import { GrPersonalComputer } from 'react-icons/gr';
 
 const CourseOverview = () => {
+  const content = [
+    { title: 'Chap 1', content: [{ courses: [{ title: 'Course 1' }, { title: 'Course 2' }, { title: 'Course 3'}, { title: 'Course 4'}], test: 'Quizz time', homework: 'Homework assignment #1' }] }, 
+    { title: 'Chap 2', content: [{ courses: [{ title: 'Intro to something' }], test: 'Quizz time' }] }, 
+    { title: 'Conclu', content: [{ courses: [{ title: 'Intro to something' }], homework: 'Homework assignment #2' }] }
+  ]
+
   return (
     <Accordion defaultActiveKey='0'>
       {
-        [{ title: 'Intro' }, { title: 'Dev' }, { title: 'Conclu' }].map((item, index) => (
+        content.map((item, index) => (
           <Card className={'border-0'} key={`c-overview-${index}`}>
-            <Card.Header className={'border-bottom-0 bg-light border-top py-0'}>
+            <Card.Header className={'border-bottom-0 bg-light border-top py-1'}>
               <Accordion.Toggle as={Button} variant={'span'} eventKey={`${index}`} className={'px-0 w-100'}>
                 <Flex items={'center'} content={'space-between'} class={'w-100'}>
                   <Flex items={'center'}>
@@ -27,12 +35,59 @@ const CourseOverview = () => {
                       size={14}
                     />
                   </Flex>
-                  <FaAngleDown style={{ width: 14 }} className={'active'} />
+                  <FaAngleRight style={{ width: 14 }} className={'active'} />
                 </Flex>
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey={`${index}`}>
-              <Card.Body>Hello! I'm the body</Card.Body>
+              <Card.Body className={'pt-2'}>
+                { 
+                  item.content.map(courseContent => {
+                      return (
+                        <>
+                          { 
+                            courseContent.courses && courseContent.courses.map((course, index) => (
+                              <>
+                                <Flex items={'center'} class={index > 0 ? 'pt-1' : ''}>
+                                  <GrPersonalComputer />
+                                  <Text
+                                    text={course.title}
+                                    paddingLeft={10}
+                                  />
+                                </Flex>
+                              </>
+                            ))
+                          }
+
+                          {
+                            courseContent.test && <>
+                              <Flex items={'center'} class={'pt-1'}>
+                                <GoTasklist />
+                                <Text
+                                  text={courseContent.test}
+                                  paddingLeft={10}
+                                />
+                              </Flex>
+                            </>
+                          }
+                        
+                        {
+                          courseContent.homework && <>
+                            <Flex items={'center'} class={'pt-1'}>
+                              <GoChecklist />
+                              <Text
+                                text={courseContent.homework}
+                                paddingLeft={10}
+                              />
+                            </Flex>
+                          </>
+                        }
+                        
+                      </>
+                    )
+                  }) 
+                }
+              </Card.Body>
             </Accordion.Collapse>
           </Card>
         ))
@@ -41,10 +96,12 @@ const CourseOverview = () => {
   )
 }
 
-const ModalContent = () => {
+const ModalContent = ({ overview }) => {
   return (
     <Row className={'pb-4'}>
-      <Col lg={6} className={'d-none d-lg-flex'}>Blue</Col>
+      <Col lg={6} className={'d-none d-lg-flex position-relative'}>
+        <Image height={100} width={450} src={overview} />
+      </Col>
       <Col sm={12} lg={6}>
         <CourseOverview />
       </Col>
@@ -56,7 +113,7 @@ export default function WithDescription({ modalInfos, displayInfos, image, title
   const _modalInfos = () => {
     modalInfos({
       title: <Text text={title} bold display={'flex'} textClass={'text-center'} />,
-      children: <ModalContent />
+      children: <ModalContent overview={image} />
     })
     displayInfos.toggle()
   }
@@ -73,14 +130,17 @@ export default function WithDescription({ modalInfos, displayInfos, image, title
       <div className={'py-2'}>
         <Text text={title} size={'1.4em'} bold display={'flex'} textClass={'text-center'} />
       </div>
+
       <div>{subtitle && <Text text={subtitle} />}</div>
 
       <Text text={description} size={'1em'} textClass={'text-center'} display={'flex'} paddingBottom={20} />
 
       <Button className={'w-85 py-2 rounded-0 shadow-on-hover mb-3'} variant={'outline-primary'} onClick={_modalInfos}>Regarder la présentation</Button>
-      <Button className={'w-85 py-2 rounded-0 shadow-on-hover mb-3'} variant={'outline-primary'} onClick={displayInfos.toggle}>Regarder la première leçon</Button>
-      <Button className={'w-85 py-2 rounded-0 shadow-on-hover mb-3'} variant={'outline-primary'} onClick={displayInfos.toggle}>Lire le cursus</Button>
+      <Button className={'w-85 py-2 rounded-0 shadow-on-hover mb-3'} variant={'outline-primary'} onClick={_modalInfos}>Regarder la première leçon</Button>
+      <Button className={'w-85 py-2 rounded-0 shadow-on-hover mb-3'} variant={'outline-primary'} onClick={_modalInfos}>Lire le cursus</Button>
+      
       <Text text={ToFCFA(price)} size={'1em'} textClass={'text-center'} display={'flex'} />
+      
       <Button className={'w-85 py-2 rounded-0 shadow-on-hover mt-3'} variant={'primary'}>Prendre ce cursus</Button>
     </Flex>
   )
