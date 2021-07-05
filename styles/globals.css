@@ -60,6 +60,10 @@ a {
   border-width: 3px !important;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 /* // Width sizing */
 .w-5 {
   width: 5% !important;

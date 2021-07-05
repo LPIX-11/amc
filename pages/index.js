@@ -57,41 +57,44 @@ export default function Home({ courses }) {
         </Container>
 
         <Flex class={'mx-xl-5 px-xl-5'}>
-          <Row className={'w-100 px-0 px-lg-5 mx-0'}>
-            {courses.length &&
-              courses.map((course) => (
-                <Col
-                  sm={12}
-                  lg={4}
-                  className={
-                    'px-0 px-lg-3 mx-3 mx-lg-0 mb-4 mb-lg-0 pb-0 pb-lg-4'
-                  }
-                  key={`course-${course.title}`}
-                >
-                  <Course
-                    withDescription
-                    hasCertificated
-                    displayInfos={toggleModal}
-                    modalInfos={setModalInfos}
-                    image={course.cover}
-                    title={course.title}
-                    description={course.description}
-                    price={course.price}
-                  />
-                </Col>
-              ))}
-          </Row>
+          <Container fluid className={'bg-transparent px-0 py-3'}>
+            <Row className={'w-100 px-0 px-lg-5 mx-0'}>
+              {courses.length &&
+                courses.map((course) => (
+                  <Col
+                    sm={12}
+                    lg={4}
+                    className={
+                      'px-0 px-lg-3 mx-3 mx-lg-0 mb-4 mb-lg-0 pb-0 pb-lg-4'
+                    }
+                    key={`course-${course.title}`}
+                  >
+                    <Course
+                      withDescription
+                      hasCertificated
+                      displayInfos={toggleModal}
+                      modalInfos={setModalInfos}
+                      image={course.cover}
+                      title={course.title}
+                      description={course.description}
+                      price={course.price}
+                    />
+                  </Col>
+                ))}
+            </Row>
+          </Container>
         </Flex>
-
-        <CourseBundle
-          title={'14 Course Bundle Pack'}
-          subtitle={'Save 99.5% when you buy in bulk.'}
-          description={
-            'Get lifetime access to all 14 of our courses: Java, R, C#, Data Mining, Flask, Android, Python, Node.js, Javascript, HTML & CSS, Swift & Xcode, iOS, MacOS, and C++. All 14 certificates are included as well. This bundle pack costs a total of $27 USD, which is less than $1.93 per course! '
-          }
-          price={30000}
-          image={'https://pirple.s3.amazonaws.com/stripe/stripe-js.png'}
-        />
+        <Container fluid className={'bg-transparent px-0 py-3'}>
+          <CourseBundle
+            title={'14 Course Bundle Pack'}
+            subtitle={'Save 99.5% when you buy in bulk.'}
+            description={
+              'Get lifetime access to all 14 of our courses: Java, R, C#, Data Mining, Flask, Android, Python, Node.js, Javascript, HTML & CSS, Swift & Xcode, iOS, MacOS, and C++. All 14 certificates are included as well. This bundle pack costs a total of $27 USD, which is less than $1.93 per course! '
+            }
+            price={30000}
+            image={'https://pirple.s3.amazonaws.com/stripe/stripe-js.png'}
+          />
+        </Container>
 
         <CustomModal
           borderless

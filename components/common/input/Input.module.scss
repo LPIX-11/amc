@@ -1,0 +1,96 @@
+.formSelect {
+  appearance: none;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: inherit;
+  }
+}
+
+.form-input {
+  position: relative;
+  width: 100%;
+
+  span {
+    font-size: 14px;
+    color: #cd3c14;
+    display: block;
+    margin-top: 0.625rem;
+  }
+
+  i {
+    position: absolute;
+    top: 1%;
+    right: -0.2rem;
+    left: auto;
+    color: #cd3c14;
+  }
+
+  .label {
+    position: absolute;
+    left: 0.8rem;
+    top: 23%;
+    font-weight: normal;
+    color: #999;
+    transition: 0.4s;
+    font-weight: bold;
+  }
+
+  .input,
+  .textarea,
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid #ddd;
+    // border-radius: 4px;
+    padding: 0.8rem;
+    height: 40px;
+    background-color: transparent;
+    &:focus {
+      outline: none;
+      border-color: #52adf2;
+    }
+    &.focused {
+      border-color: #52adf2;
+    }
+    input:invalid {
+      box-shadow: none;
+    }
+  }
+
+  .label {
+    &.floated {
+      background-color: #fff;
+      padding: 0 0.3rem;
+      font-size: 14px;
+      top: -18%;
+      color: #52adf2;
+      width: auto;
+    }
+    &.textarea {
+      top: -8% !important;
+    }
+    &.error {
+      color: #cd3c14;
+    }
+    &.floated.error {
+      top: -11%;
+    }
+    &.floated.error {
+      top: -11%;
+    }
+    .error:not(.floated) {
+      top: 20%;
+    }
+  }
+  
+  .input.error,
+  select.error {
+    border-color: #cd3c14;
+  }
+  > .input {
+    width: 100%;
+    transition: 0.4s;
+  }
+}
