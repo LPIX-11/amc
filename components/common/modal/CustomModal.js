@@ -1,6 +1,13 @@
 import { Button, Modal } from 'react-bootstrap';
 
-export default function CustomModal({ title, children, display, size, footer, borderless }) {
+export default function CustomModal({
+  title,
+  children,
+  display,
+  size,
+  footer,
+  borderless,
+}) {
   return (
     <Modal
       {...display}
@@ -10,16 +17,14 @@ export default function CustomModal({ title, children, display, size, footer, bo
       contentClassName={'rounded-0'}
     >
       <Modal.Header className={`${borderless && 'border-0'}`} closeButton>
-        <Modal.Title id={'contained-modal-title-vcenter'}>
-          {title}
-        </Modal.Title>
+        <Modal.Title id={'contained-modal-title-vcenter'}>{title}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        {children}
-      </Modal.Body>
-      {footer && <Modal.Footer className={`${borderless && 'border-0'}`}>
-        <Button onClick={display.onHide}>Close</Button>
-      </Modal.Footer>}
+      <Modal.Body>{children}</Modal.Body>
+      {footer && (
+        <Modal.Footer className={`${borderless && 'border-0'}`}>
+          <Button onClick={display.onHide}>Close</Button>
+        </Modal.Footer>
+      )}
     </Modal>
-  )
+  );
 }

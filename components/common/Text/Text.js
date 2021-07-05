@@ -1,20 +1,20 @@
 import { css } from '@emotion/react';
 import PropTypes from 'prop-types';
 
-export const Text = props => {
+export const Text = (props) => {
   /* istanbul ignore next */
   const textWrapperStyling = css`
-        display: ${props.display ? props.display : 'block'};
-        justify-content: ${props.alignment ? props.alignment : 'center'};
-        padding-top: ${props.paddingTop ? props.paddingTop : 0}px;
-        padding-right: ${props.paddingRight ? props.paddingRight : 0}px;
-        padding-bottom: ${props.paddingBottom ? props.paddingBottom : 0}px;
-        padding-left: ${props.paddingLeft ? props.paddingLeft : 0}px;
-        margin-top: ${props.margingTop ? props.margingTop : 0}px;
-        margin-right: ${props.margingRight ? props.margingRight : 0}px;
-        margin-Bottom: ${props.margingBottom ? props.margingBottom : 0}px;
-        marging-left: ${props.margingLeft ? props.margingLeft : 0}px;
-    `;
+    display: ${props.display ? props.display : 'block'};
+    justify-content: ${props.alignment ? props.alignment : 'center'};
+    padding-top: ${props.paddingTop ? props.paddingTop : 0}px;
+    padding-right: ${props.paddingRight ? props.paddingRight : 0}px;
+    padding-bottom: ${props.paddingBottom ? props.paddingBottom : 0}px;
+    padding-left: ${props.paddingLeft ? props.paddingLeft : 0}px;
+    margin-top: ${props.margingTop ? props.margingTop : 0}px;
+    margin-right: ${props.margingRight ? props.margingRight : 0}px;
+    margin-bottom: ${props.margingBottom ? props.margingBottom : 0}px;
+    marging-left: ${props.margingLeft ? props.margingLeft : 0}px;
+  `;
 
   /* istanbul ignore next */
   const textStyling = css`
@@ -27,15 +27,12 @@ export const Text = props => {
 
   return (
     <div css={textWrapperStyling}>
-      <spann
-        css={textStyling}
-        className={props.textClass}>
+      <span css={textStyling} className={props.textClass}>
         {props.text}
-      </spann>
+      </span>
     </div>
-  )
+  );
 };
-
 
 // Docs
 Text.propTypes = {
@@ -50,7 +47,7 @@ Text.propTypes = {
   /**
    * Text sizz
    */
-  size: PropTypes.number,
+  size: PropTypes.oneOfType(['number', 'string']),
   /**
    * Defines text display
    */
@@ -62,11 +59,36 @@ Text.propTypes = {
   /**
    * Alignment of the text
    */
-  textAlign: PropTypes.oneOf(['center', 'end', 'inherit', 'initial', 'justify', 'left', 'match-parent', 'revert', 'right', 'start']),
+  textAlign: PropTypes.oneOf([
+    'center',
+    'end',
+    'inherit',
+    'initial',
+    'justify',
+    'left',
+    'match-parent',
+    'revert',
+    'right',
+    'start',
+  ]),
   /**
    * Defines the text poisition (Depending on display)
    */
-  alignment: PropTypes.oneOf(['center', 'end', 'flex-end', 'flex-start', 'inherit', 'initial', 'left', 'normal', 'revert', 'right', 'safe', 'space-around', 'space-between']),
+  alignment: PropTypes.oneOf([
+    'center',
+    'end',
+    'flex-end',
+    'flex-start',
+    'inherit',
+    'initial',
+    'left',
+    'normal',
+    'revert',
+    'right',
+    'safe',
+    'space-around',
+    'space-between',
+  ]),
   /**
    * Inner-space top
    */
