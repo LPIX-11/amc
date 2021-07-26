@@ -241,3 +241,34 @@ a {
 .modal-lg, .modal-xl {
   max-width: 1000px;
 }
+
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  background-image: url('/check.svg');
+}
+
+
+.custom-checkbox .custom-control-label::before {
+
+    border-radius: 0;
+
+}
+.custom-control-label::before, .custom-file-label, .custom-select {
+
+    -moz-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+}
+.custom-control-label::before {
+    position: absolute;
+    top: 0.25rem;
+    left: -1.5rem;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    pointer-events: none;
+    content: "";
+    background-color: #fff;
+    border: #adb5bd solid 1px;
+
+}
