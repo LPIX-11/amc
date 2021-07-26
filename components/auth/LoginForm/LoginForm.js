@@ -4,7 +4,7 @@ import { Flex } from '../../ui/Display/Flex';
 import Input from '../../common/input/Input';
 import Checkbox from '../../common/checkbox/Checkbox';
 
-import { Text } from '../../common/text/Text';
+import { Text } from '../../common/Text/Text';
 
 const LoginForm = () => {
   return (
